@@ -1,37 +1,38 @@
-import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+ import React, { useState } from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
 
-export default function HomeScreen() {
-  // Initialize state for the counter with an initial value of 0.
+export default function CounterScreen() {
+  // 1️⃣ Initialiser l'état
   const [count, setCount] = useState(0);
 
-  // Function to increment the count.
-  const incrementCount = () => {
-    // Write your logic here to increment the count
-  }
+  // 2️⃣ Fonction pour incrémenter
+  const increment = () => {
+    setCount(count + 1);
+  };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Replace this part with your soluce</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      {/* 3️⃣ Afficher l'état */}
+      <Text style={styles.countText}>Count: {count}</Text>
+
+      {/* 4️⃣ Bouton pour incrémenter */}
+      <Button title="Incrémenter" onPress={increment} />
+    </View>
   );
 }
 
+// 5️⃣ Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0f0f0",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
+    justifyContent: "center",  // centre verticalement
+    alignItems: "center",      // centre horizontalement
+    padding: 16,
+    backgroundColor: "#f2f2f2",
   },
   countText: {
-    fontSize: 48,
-    fontWeight: "600",
-    marginVertical: 20,
+    fontSize: 24,
+    marginBottom: 20,
+    fontWeight: "bold",
   },
 });
